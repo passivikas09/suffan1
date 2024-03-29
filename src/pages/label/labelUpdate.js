@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import Barcode from 'react-jsbarcode';
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
@@ -62,21 +61,25 @@ export default function UpdateLabel() {
 
     return (
         <>
-            <Sidebar />
             <main  style={customStyles} id="main" className="main ">
-                <div className="pagetitle d-flex justify-content-center ">
+                <div className="row">
+                    <div className="col-md-2">
+                    <div className="pagetitle">
                     <h1>Label</h1>
                     <nav>
-                        <ol className="breadcrumb pt-1 mx-2">
+                        <ol className="breadcrumb">
                             <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                             <li className="breadcrumb-item">Label</li>
                             <li className="breadcrumb-item active">Update</li>
                         </ol>
                     </nav>
-                    <div className="col-md d-flex justify-content-end">
+                </div>
+                    </div>
+                    <div className="col-md text-end mb-3 mt-3">
                         <Link to={"/admin/label/generated"} className="btn btn-dark" >Back</Link>
                     </div>
                 </div>
+               
                 <section className="section ">
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-8">

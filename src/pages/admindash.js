@@ -1,22 +1,11 @@
-import Sidebar from "../components/sidebar"
 import React from 'react';
 import { Link } from "react-router-dom"
 
 export default function Admindashboard() {
-  const customStyle = {
-    height: "81vh",
-    background: "https://media.gettyimages.com/id/1031355620/photo/empty-studio-background.jpg?s=1024x1024&w=gi&k=20&c=6zEzFWGjRSbknvaCAgZmrO3XcNcoueYxv82LHSC9Myg=",
-    backgroundPositon: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-  }
-
-  
 
   return (
     <>
-      <Sidebar />
-      <main style={customStyle} id="main" className="main">
+      <main  id="main" className="main">
         <div className="pagetitle">
           <h1>Dashboard</h1>
           <nav>
@@ -32,9 +21,7 @@ export default function Admindashboard() {
             {/* Left side columns */}
             <div className="col-lg-12">
               <div className="row">
-
                 {/* Sales Card */}
-                
                 <div className="col-xxl-4 col-lg-12 col-md-12">
                   <div className="card info-card sales-card">
                     <div className="card-body p-4">

@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
-import ModalFunc from "../../components/modal";
-
 
 export default function Allproduct() {
     const [load, setload] = useState(false)
@@ -45,9 +42,9 @@ export default function Allproduct() {
                 key: searchProduct
             }
             apiservice.searchProduct(data).then((res) => {
-                if(res.data.success===false){
+                if (res.data.success === false) {
                     toast.error(res.data.em)
-                }else{
+                } else {
                     setdata(res.data.data)
                     toast.success(res.data.message)
                 }
@@ -58,25 +55,28 @@ export default function Allproduct() {
     }
     return (
         <>
-            <Sidebar />
             <main id="main" className="main" >
-                <div className="pagetitle d-flex justify-content-center ">
-                    <h1 className="mt-3">Product</h1>
-                    <nav>
-                        <ol className="breadcrumb mt-4 mx-2">
-                            <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
-                            <li className="breadcrumb-item">Product</li>
-                            <li className="breadcrumb-item active">All</li>
-                        </ol>
-                    </nav>
-                    <div className="col-md d-flex justify-content-center ">
-                    <input className="form-control" value={searchProduct} onKeyDown={(e) => { handleKey(e) }} onChange={(e) => { setsearchProduct(e.target.value) }} placeholder="Search product here &#128269;"/>
+                <div className="row ">
+                    <div className="col-md-2">
+                        <div className="pagetitle ">
+                            <h1>Product</h1>
+                            <nav>
+                                <ol className="breadcrumb ">
+                                    <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
+                                    <li className="breadcrumb-item">Product</li>
+                                    <li className="breadcrumb-item active">All</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="col-md-8 mt-3">
+                    <input className="form-control" value={searchProduct} onKeyDown={(e) => { handleKey(e) }} onChange={(e) => { setsearchProduct(e.target.value) }} placeholder="Search product here &#128269;" />
+                    </div>
+                    <div className="col-md  mt-3 mb-3 text-end">
                     <Link to={"/admin/product/add"} className="btn btn-success mx-1 ">Add<i class="bi bi-plus-circle"></i></Link>
-                        <Link to={"/admin/dashboard"} className="btn btn-dark mx-1">Back</Link>
-                    </div>  
+                    <Link to={"/admin/dashboard"} className="btn btn-dark mx-1">Back</Link>
+                    </div>
                 </div>
-                
-                
                 <section className="section">
                     <div className="row d-flex justify-content-center">
                         <div className="col-md-12 table-responsive">

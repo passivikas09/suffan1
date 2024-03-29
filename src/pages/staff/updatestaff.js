@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -65,21 +64,24 @@ export default function Updatestaff() {
   return (
     <>
       <div className={load === true ? "disable-screen" : ""}>
-        <Sidebar />
         <main style={customStyle} id="main" className="main">
-          <div className="pagetitle d-flex justify-content-center ">
+          <div className="row">
+            <div className="col-md-2">
+          <div className="pagetitle ">
             <h1> Staff</h1>
             <nav>
-              <ol className="breadcrumb pt-1 mx-2">
+              <ol className="breadcrumb ">
                 <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                 <li className="breadcrumb-item">Staff</li>
                 <li className="breadcrumb-item active">Update</li>
               </ol>
             </nav>
-            <div className="col-sm d-flex justify-content-end">
+          </div>{/* End Page Title */}
+            </div>
+            <div className="col-md text-end mb-3 mt-3">
               <Link to={"/admin/staff/all"} className="btn btn-dark">Back</Link>
             </div>
-          </div>{/* End Page Title */}
+          </div>
           <section className="section">
             <div className="row d-flex justify-content-center"  >
               <div className="col-lg-10">

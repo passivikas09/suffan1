@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -56,22 +55,28 @@ export default function Labelgenerated() {
     }
     return (
         <>
-            <Sidebar />
             <main id="main" className="main" >
-                <div className="pagetitle d-flex justify-content-start">
+                <div className="row">
+                    <div className="col-md-2">
+                    <div className="pagetitle ">
                     <h1  >Label</h1>
                     <nav>
-                        <ol className="breadcrumb pt-1 mx-2">
+                        <ol className="breadcrumb ">
                             <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                             <li className="breadcrumb-item">label</li>
                             <li className="breadcrumb-item active">Generated</li>
                         </ol>
                     </nav>
-                    <div className=" offset-lg-6 col-lg-3 d-flex justify-content-end">
+                </div>
+                    </div>
+                    <div className="  col-md-8 col-sm-6 mt-3">
                         <input value={searchInput} onKeyDown={(e) => { handleKey(e) }} onChange={(e) => { setsearchInput(e.target.value) }} className="form-control text-center" placeholder="Search Label Here &#128269;" />
-                        <Link to="/admin/label" className="btn btn-dark mx-1">Back</Link>
+                    </div>
+                    <div className="col-md text-end mb-3 mt-3">
+                    <Link to="/admin/label" className="btn btn-dark mx-1">Back</Link>
                     </div>
                 </div>
+                
                 <section className="section">
                     <div className="row d-flex justify-content-center">
                         <div className="col-md-12 table-responsive">

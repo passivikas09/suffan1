@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -34,7 +33,7 @@ export default function Dispatch() {
     }
 
     const handleKey = (e) => {
-        if (e.key == "Enter") {
+        if (e.key === "Enter") {
             let data = {
                 key: searchInput
             }
@@ -53,18 +52,23 @@ export default function Dispatch() {
 
     return (
         <>
-            <Sidebar />
             <main id="main" className="main" >
-                <div className="pagetitle d-flex justify-content-center ">
+                <div className="row">
+                    <div className="col-md-2">
+                    <div className="pagetitle">
                     <h1>Dispatch</h1>
                     <nav>
-                        <ol className="breadcrumb pt-1 mx-2">
+                        <ol className="breadcrumb ">
                             <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                             <li className="breadcrumb-item">Dispatch</li>
                         </ol>
                     </nav>
+                </div>
+                    </div>
+                    <div className="col-md-8 mt-3">
                     <input value={searchInput} onChange={(e) => { setsearchInput(e.target.value) }} onKeyDown={(e) => { handleKey(e) }} className="form-control mx-2" placeholder="Search Vendor &#128269;" />
-                    <div className="col-md d-flex justify-content-end ">
+                    </div>
+                    <div className="col-md mt-3 mb-3 text-end">
                         <Link to={"/admin/dispatch/add"} className="btn btn-success">Add <span> <i className="bi bi-plus-circle mx-1 float-left"></i></span></Link>
                         <Link to={"/admin/dashboard"} className="btn btn-dark mx-1">Back</Link>
                     </div>

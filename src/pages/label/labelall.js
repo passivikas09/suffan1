@@ -1,4 +1,3 @@
-import Sidebar from "../../components/sidebar"
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
@@ -10,11 +9,11 @@ export default function Labelgenerate() {
     const [load, setload] = useState(false)
     const [data, setdata] = useState([])
     const [name, setname] = useState("")
-    const [codeward,setcodeward]=useState("")
+    const [codeward, setcodeward] = useState("")
     const [qty, setqty] = useState(0)
     const [nooflabels, setnooflabels] = useState(0)
-    const [useBy,setuseBy]=useState("")
-    const [id,setid]=useState("")
+    const [useBy, setuseBy] = useState("")
+    const [id, setid] = useState("")
 
     useEffect(() => {
         apiservice.allproduct().then((res) => {
@@ -24,32 +23,35 @@ export default function Labelgenerate() {
         })
     }, [load])
 
-    
-    const setvalues=(id)=>{
-        let data={
-            _id:id
+
+    const setvalues = (id) => {
+        let data = {
+            _id: id
         }
-        apiservice.singleproduct(data).then((res)=>{
+        apiservice.singleproduct(data).then((res) => {
             console.log(res.data.data)
             setname(res.data.data.name)
             setid(res.data.data._id)
-        }).catch((err)=>{
-            toast.error("error"+err)
+        }).catch((err) => {
+            toast.error("error" + err)
         })
     }
     return (
         <>
-            <Sidebar />
             <main id="main" className="main" >
-                <div className="pagetitle d-flex justify-content-center ">
-                    <h1>Label </h1>
-                    <nav>
-                        <ol className="breadcrumb pt-1 mx-2">
-                            <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
-                            <li className="breadcrumb-item">Label</li>
-                        </ol>
-                    </nav>
-                    <div className="col d-flex justify-content-end">
+                <div className="row">
+                    <div className="col-md-2">
+                        <div className="pagetitle">
+                            <h1>Label </h1>
+                            <nav>
+                                <ol className="breadcrumb">
+                                    <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
+                                    <li className="breadcrumb-item">Label</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="col-md text-end mt-3 mb-3">
                         <Link to={"/admin/label/generated"} className="btn btn-success">All <i className="bi bi-upc-scan"></i> </Link>
                         <Link to={"/admin/dashboard"} className="btn btn-dark mx-1">Back</Link>
                     </div>
@@ -62,7 +64,7 @@ export default function Labelgenerate() {
                                     <h5 className="card-title">List of Product</h5>
                                     {data.map((el, index) => {
                                         return (
-                                            <button onClick={() => {setvalues(el._id) }} key={index} className="button-34 mt-2 mx-1" >{el.name}</button>
+                                            <button onClick={() => { setvalues(el._id) }} key={index} className="button-34 mt-2 mx-1" >{el.name}</button>
                                         )
                                     })}
                                 </div>
@@ -78,18 +80,18 @@ export default function Labelgenerate() {
                                                 <label>Product Name</label>
                                                 <input value={name} onChange={(e) => { setname(e.target.value) }} type="text" className="form-control mt-2" />
                                                 <label>Code</label>
-                                                <input  value={codeward} onChange={(e)=>{setcodeward(e.target.value)}} className="form-control mt-2" type="text" />
+                                                <input value={codeward} onChange={(e) => { setcodeward(e.target.value) }} className="form-control mt-2" type="text" />
                                                 <label>Quantity</label>
                                                 <input value={qty} onChange={(e) => { setqty(e.target.value) }} type="Number" className="form-control mt-2" />
                                                 <label>No. of Labels</label>
                                                 <input value={nooflabels} onChange={(e) => { setnooflabels(e.target.value.toUpperCase()) }} type="text" className="form-control mt-2" />
                                                 <label>useBy</label>
-                                                <input value={useBy}  onChange={(e)=>{setuseBy(e.target.value)}} type="text"  className="form-control mt-2" />
+                                                <input value={useBy} onChange={(e) => { setuseBy(e.target.value) }} type="text" className="form-control mt-2" />
                                             </div>
                                         </div>
                                         <div className="row mt-3">
                                             <div className="col-12 ">
-                                                <LabelModal id={id} nooflabels={nooflabels}  useBy={useBy}  quantity={qty}  codeward={codeward}  />
+                                                <LabelModal id={id} nooflabels={nooflabels} useBy={useBy} quantity={qty} codeward={codeward} />
                                             </div>
                                         </div>
                                     </div>

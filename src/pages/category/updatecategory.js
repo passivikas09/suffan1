@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -49,9 +48,10 @@ function updateCategory(e){
     }
     return(
         <>
-               <Sidebar />
             <main style={customStyle} id="main" className="main">
-                <div className="pagetitle d-flex justify-content-start">
+                <div className="row">
+                    <div className="col-md-2">
+                    <div className="pagetitle">
                     <h1>Category</h1>
                     <nav>
                         <ol className="breadcrumb pt-1 mx-2">
@@ -60,10 +60,12 @@ function updateCategory(e){
                             <li className="breadcrumb-item active">Update</li>
                         </ol>
                     </nav>
-                    <div className="col-md d-flex justify-content-end">
+                </div>{/* End Page Title */}
+                    </div>
+                    <div className="col-md text-end mt-3 mb-3 ">
                         <Link  to={"/admin/category/all"} className="btn btn-dark">Back</Link>
                     </div>
-                </div>{/* End Page Title */}
+                </div>
                 <section className="section">
                     <div className="row d-flex justify-content-center"  >
                         <div className="col-lg-10">

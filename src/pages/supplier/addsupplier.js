@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -39,19 +38,22 @@ export default function Addsupplier() {
     }
     return (
         <>
-            <Sidebar />
             <main style={customStyle} id="main" className="main ">
-                <div className="pagetitle d-flex justify-content-center ">
+                <div className="row ">
+                    <div className="col-md-2">
+                    <div className="pagetitle">
                     <h1>Supplier</h1>
                     <nav>
-                        <ol className="breadcrumb pt-1 mx-2">
+                        <ol className="breadcrumb ">
                             <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                             <li className="breadcrumb-item">Supplier</li>
                             <li className="breadcrumb-item active">Add</li>
                         </ol>
                     </nav>
-                    <div className="col-lg d-flex justify-content-end">
-                        <Link to='/admin/supplier/all' className="btn btn-dark">Back</Link>
+                </div>
+                    </div>
+                    <div className="col-md text-end mt-3">
+                        <Link to='/admin/supplier/all' className="btn btn-dark ">Back</Link>
                     </div>
                 </div>
                 <section className="section ">

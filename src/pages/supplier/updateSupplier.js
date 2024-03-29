@@ -1,9 +1,8 @@
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
-import { BeatLoader, RingLoader } from "react-spinners";
+import { BeatLoader} from "react-spinners";
 export default function Updatesupplier() {
     const [load, setload] = useState(false)
     const [name, setname] = useState("")
@@ -61,21 +60,24 @@ export default function Updatesupplier() {
     return (
         <>
             <div className={load === true ? "disable-screen" : ""}>
-                <Sidebar />
                 <main style={customStyle} id="main" className="main ">
-                    <div className="pagetitle d-flex justify-content-start ">
+                    <div className="row">
+                        <div className="col-md-2">
+                        <div className="pagetitle ">
                         <h1> Supplier</h1>
                         <nav>
-                            <ol className="breadcrumb pt-1 mx-2">
+                            <ol className="breadcrumb">
                                 <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
                                 <li className="breadcrumb-item">Supplier</li>
                                 <li className="breadcrumb-item active">Update</li>
                             </ol>
                         </nav>
-                        <div className="col-md d-flex justify-content-end">
+                    </div>
+                        </div>
+                        <div className="col-md  mb-3 mt-3 text-end">
                             <Link to={"/admin/supplier/all"} className="btn btn-dark">Back</Link>
                         </div>
-                    </div>{/* End Page Title */}
+                    </div>
                     <section className="section ">
                         <div className="row d-flex justify-content-center "  >
                             <div className="col-lg-10">
@@ -97,7 +99,7 @@ export default function Updatesupplier() {
                                                 <input value={address} type="text" onChange={(e) => { setaddress(e.target.value) }} className="form-control" id="inputAddress" placeholder="1234 Main St" />
                                             </div>
                                             <div className="text-center">
-                                                <button onClick={handleUpdate} type="submit" className="btn btn-primary">Update</button>
+                                                <button onClick={handleUpdate} type="submit" className="btn btn-primary mb-1">Update</button>
                                             </div>
                                         </form>
                                     </div>

@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
@@ -88,9 +87,10 @@ function handleUpdate(e){
 }
     return(
         <>
-        <Sidebar/>
            <main  id="main" className="main ">
-                <div className="pagetitle d-flex justify-content-center ">
+            <div className="row">
+                <div className="col-md-2">
+                <div className="pagetitle">
                     <h1>Product</h1>
                     <nav>
                         <ol className="breadcrumb pt-1 mx-2">
@@ -99,10 +99,12 @@ function handleUpdate(e){
                             <li className="breadcrumb-item active">Update</li>
                         </ol>
                     </nav>
-                    <div className="col-md d-flex justify-content-end">
+                </div>
+                </div>
+                <div className="col-md mt-3 mb-3 text-end">
                         <Link to={"/admin/product/all"} className="btn btn-dark" >Back</Link>
                     </div>
-                </div>
+            </div>
                 <section className="section ">
                     <div className="row d-flex justify-content-center">
                         <div className="col-lg-10">

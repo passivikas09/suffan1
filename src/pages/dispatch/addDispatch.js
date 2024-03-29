@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
-import Sidebar from "../../components/sidebar";
 import { useEffect, useState } from "react";
 import apiservice from "../apiservice/apiservice";
 import { toast } from "react-toastify";
-import React, { useRef } from 'react';
-import { useReactToPrint } from 'react-to-print';
 export default function AddDispatch() {
   const [load, setload] = useState(false)
   const [qty, setqty] = useState("")
@@ -59,22 +56,25 @@ export default function AddDispatch() {
 
   return (
     <>
-      <Sidebar />
-
       <main style={customStyle} id="main" className="main">
-        <div className="pagetitle d-flex justify-content-around ">
+        <div className="row">
+          <div className="col-md-2">
+            
+        <div className="pagetitle">
           <h1> Dispatch</h1>
           <nav>
-            <ol className="breadcrumb mt-3 mx-2">
+            <ol className="breadcrumb ">
               <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
               <li className="breadcrumb-item">Dispatch</li>
               <li className="breadcrumb-item active">Add</li>
             </ol>
           </nav>
-          <div className="col-lg d-flex justify-content-end">
+        </div>{/* End Page Title */}
+          </div>
+          <div className="col-md text-end mt-3 mb-3">
             <Link to={"/admin/dispatch"} className="btn btn-dark mx-1">Back</Link>
           </div>
-        </div>{/* End Page Title */}
+        </div>
         <section className="section">
           <div className="row d-flex justify-content-center" >
             <div className="col-lg-11">
