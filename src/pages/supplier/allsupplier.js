@@ -50,12 +50,9 @@ export default function Allsupplier() {
             })
         }
     }
-    const customStyle = {
-        height: "80vh"
-    }
     return (
         <>
-            <main style={customStyle} id="main" className="main" >
+            <main  id="main" className="main" >
                 <div className="row">
                     <div className="col-md-2">
                         <div className="pagetitle">

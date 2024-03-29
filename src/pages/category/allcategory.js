@@ -50,12 +50,10 @@ export default function Allcategory() {
             })
         }
     }
-    const customStyle = {
-        height: "81vh"
-    }
+    
     return (
         <>
-            <main style={customStyle} id="main" className="main" >
+            <main  id="main" className="main" >
                 <div className="row">
                     <div className="col-md-2">
                         <div className="pagetitle">

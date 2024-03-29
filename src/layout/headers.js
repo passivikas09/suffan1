@@ -1,10 +1,11 @@
 import "react-toggle/style.css" // for ES6 modules
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import apiservice from "../pages/apiservice/apiservice"
 import Sidebar from "../components/sidebar";
 export default function Headers() {
+ 
   const [pending, setpending] = useState("")
   const [values, setvalues] = useState([])
   const nav = useNavigate()
@@ -26,7 +27,7 @@ export default function Headers() {
     }).catch((err) => {
       toast.error("error" + err)
     })
-  })
+  },[])
 
   function handlekeydown(e) {
     console.log(e.key)
@@ -35,6 +36,9 @@ export default function Headers() {
       e.preventDefault()
     }
   }
+
+  const childref = useRef();
+  
   return (
     <>
       <header id="header" className="header fixed-top d-flex align-items-center ">
@@ -42,6 +46,7 @@ export default function Headers() {
           <Link to="/admin/dashboard" className="logo d-flex align-items-center">
             <img src="/assets/img/sufaan.png" alt="logo" />
           </Link>
+          <button  style={{background:"rgb(255, 255, 255)"}} onClick={() => { childref.current.click()}} className="btn " ><i style={{fontSize:"26px"}} className="bi bi-list"></i></button>
         </div>
         <div className="search-bar">
           <form className="search-form d-flex  justify-content-center align-items-center">
@@ -73,11 +78,11 @@ export default function Headers() {
                   return (
                     <>
                       <li key={index} className="notification-item ">
-                        {el.status == 0 ? <i class="bi bi-clock-history"></i> : el.status == 1 ? <i class="bi bi-truck"></i> : el.status == 2 ? <i class="bi bi-check2-all"></i> : el.status == 3 ? <i class="bi bi-x-circle"></i> : ""}
+                        {el.status === 0 ? <i class="bi bi-clock-history"></i> : el.status === 1 ? <i class="bi bi-truck"></i> : el.status === 2 ? <i class="bi bi-check2-all"></i> : el.status === 3 ? <i class="bi bi-x-circle"></i> : ""}
                         <div>
                           <h4>{el.name}</h4>
                           <p>{el.productId.name}</p>
-                          <p className="mt-2" >{el.status == 0 ? <p className="badge text-bg-warning" >pending</p> : el.status == 1 ? <p className="badge text-bg-primary" >shipped</p> : el.status == 2 ? <p className="badge text-bg-success" >delivered</p> : el.status == 3 ? <p className="badge text-bg-danger" >cancelled</p> : ""}</p>
+                          <p className="mt-2" >{el.status === 0 ? <p className="badge text-bg-warning" >pending</p> : el.status === 1 ? <p className="badge text-bg-primary" >shipped</p> : el.status === 2 ? <p className="badge text-bg-success" >delivered</p> : el.status === 3 ? <p className="badge text-bg-danger" >cancelled</p> : ""}</p>
                         </div>
                       </li>
                       <li>
@@ -118,7 +123,7 @@ export default function Headers() {
           </ul>
         </nav>
       </header>
-      <Sidebar/>
+      <Sidebar  reference={childref} />
     </>
   )
 }

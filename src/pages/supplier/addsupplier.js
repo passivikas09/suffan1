@@ -52,7 +52,7 @@ export default function Addsupplier() {
                     </nav>
                 </div>
                     </div>
-                    <div className="col-md text-end mt-3">
+                    <div className="col-md text-end mb-3 mt-3">
                         <Link to='/admin/supplier/all' className="btn btn-dark ">Back</Link>
                     </div>
                 </div>

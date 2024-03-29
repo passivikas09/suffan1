@@ -8,10 +8,10 @@ export default function Admindashboard() {
       <main  id="main" className="main">
         <div className="pagetitle">
           <h1>Dashboard</h1>
-          <nav>
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item"><Link to="/admin/dashboard">Home</Link></li>
-              <li className="breadcrumb-item active">Dashboard</li>
+          <nav >
+            <ol className="breadcrumb ">
+              <li className="breadcrumb-item "><Link to="/admin/dashboard">Home</Link></li>
+              <li className="breadcrumb-item active ">Dashboard</li>
             </ol>
           </nav>
         </div>

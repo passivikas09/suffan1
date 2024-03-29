@@ -79,7 +79,7 @@ export default function Addproduct() {
           </nav>
         </div>
         </div>
-        <div className="col-md mt-3 text-end">
+        <div className="col-md mt-3 mb-3 text-end">
             <Link to={"/admin/product/all"} className="btn btn-dark" >Back</Link>
           </div>
         </div>

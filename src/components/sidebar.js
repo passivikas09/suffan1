@@ -1,20 +1,18 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
  const [isSidebarOpen,setIsSidebarOpen]=useState(false)
  const trigger=()=>{
-  setIsSidebarOpen(!isSidebarOpen)
-
+   setIsSidebarOpen(!isSidebarOpen)
+    
  }
-
- 
- 
+  
   return (
     <>
-      <aside  style={{width:isSidebarOpen?"60px":""}}   id="sidebar" className="sidebar p-2" >
+      <aside  style={{width:isSidebarOpen?"10px":""}}   id="sidebar" className="sidebar p-2" >
         <div className="d-flex justify-content-end mb-2 ">
-      <button  onClick={trigger} className="btn btn-light "> <i class="bi bi-list "></i></button>
+      <button  style={{display:"none"}} ref={props.reference} onClick={trigger} className="btn btn-light "> <i class="bi bi-list "></i></button>
       </div>
         <ul className="sidebar-nav" id="sidebar-nav">
        
