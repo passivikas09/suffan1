@@ -10,11 +10,11 @@ export default function Sidebar(props) {
   
   return (
     <>
-      <aside  style={{width:isSidebarOpen?"10px":""}}   id="sidebar" className="sidebar p-2" >
+      <aside  style={{left:isSidebarOpen?"0px":""}}   id="sidebar" className="sidebar p-2" >
         <div className="d-flex justify-content-end mb-2 ">
       <button  style={{display:"none"}} ref={props.reference} onClick={trigger} className="btn btn-light "> <i class="bi bi-list "></i></button>
       </div>
-        <ul className="sidebar-nav" id="sidebar-nav">
+        <ul  style={{marginTop:"4rem"}} className="sidebar-nav " id="sidebar-nav">
        
           <li className="nav-item">
             <Link className="nav-link " to="/admin/dashboard">
